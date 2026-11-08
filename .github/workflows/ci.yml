@@ -2,7 +2,13 @@ name: Release checks
 
 on:
   push:
+    paths-ignore:
+      - '**/*.md'
+      - 'public/evidence/**'
   pull_request:
+    paths-ignore:
+      - '**/*.md'
+      - 'public/evidence/**'
 
 permissions:
   contents: read
