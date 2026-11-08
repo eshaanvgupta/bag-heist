@@ -1,0 +1,32 @@
+{
+  "artifact": "res/bag_heist.wasm",
+  "bytes": 263674,
+  "sha256": "1d5b89077475ceaaf69a2d25a939198a9608caae85e3803e563aa466cfef56d1",
+  "raw_cargo_output": {
+    "bytes": 577622,
+    "sha256": "3ab5ead3fca5e5a0df97a3ec87f53993c620184a5f82f9d252356ac688d953b7"
+  },
+  "rustc": "rustc 1.97.0 (2d8144b78 2026-07-07)",
+  "cargo": "cargo 1.97.0 (c980f4866 2026-06-30)",
+  "binaryen": "132.0.0",
+  "target": "wasm32-unknown-unknown",
+  "rustflags": "--cfg near + path remapping (/bag-heist, /cargo/registry)",
+  "wasm_opt_passes": [
+    "-Oz",
+    "--llvm-memory-copy-fill-lowering",
+    "--signext-lowering",
+    "--llvm-nontrapping-fptoint-lowering",
+    "--strip-debug",
+    "--strip-producers",
+    "--strip-target-features"
+  ],
+  "mvp_validated": true,
+  "exports": 31,
+  "source_sha256": {
+    "Cargo.toml": "ba9b7a186679bf3bf90f5e250bb971d40a2b3ac30c669cc8fdd5b68886dca02d",
+    "Cargo.lock": "f2527d92f758bff1297e8d03a66d17e0765d1e8e457c3925e8afb6aca06c7f74",
+    "src/lib.rs": "c7415d20077b6b36697647ebcf35a093e0dc65a53b243ef6e4fd2e0f703a5146",
+    "src/board.rs": "5017c9ff37f71b8547ee51faea59a4c8509972a039c9b61a5d45a2614d78ce22",
+    "src/types.rs": "fc4b30aab773004bce9ec0b484295eb2a098e3aaae6709c755b49d1e6969b61a"
+  }
+}

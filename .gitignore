@@ -1,0 +1,14 @@
+node_modules/
+**/target/
+dist/
+runtime/
+.env
+.env.*
+!.env.example
+test-results/
+playwright-report/
+res/*.raw.wasm
+evidence/*.tmp.json
+*.log
+*.tsbuildinfo
+.DS_Store

@@ -1,0 +1,4 @@
+allowBuilds:
+  esbuild: true
+  near-sandbox: true
+  secp256k1: true
