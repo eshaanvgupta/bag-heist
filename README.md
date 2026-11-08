@@ -102,4 +102,6 @@ The release is deployed on NEAR testnet at [`bag-heist-mw7swkjh.testnet`](https:
 
 `pnpm verify:testnet` checks published game receipts and current contract audits through read-only RPC. A missing record or failed RPC produces `unavailable` and a non-zero exit; a receipt/code discrepancy produces `mismatching`. Wallet approval always belongs to the visiting player.
 
+The recorded walkthrough contains **28 verified transactions across three live rounds**: two 100 BAG payouts, copied-reveal and repeated-claim rejections, a 5 BAG crafting burn, crowbar consumption and a valid door route, followed by a 100 BAG empty-round burn. Recorded final supply is **999,895 BAG**. See [`DEMO.md`](DEMO.md) for explorer links and [`public/evidence/testnet.json`](public/evidence/testnet.json) for the complete public receipt bundle.
+
 MIT licensed. See [`LICENSE`](LICENSE).

@@ -1,0 +1,1388 @@
+{
+  "schema": "bag-heist-testnet-evidence-v1",
+  "network": "testnet",
+  "contract_id": "bag-heist-mw7swkjh.testnet",
+  "code_hash": "2ybn6Uzughan9SHbLZ2XyANYuTq41LmNK5fSrimuGGDe",
+  "wasm_sha256": "1d5b89077475ceaaf69a2d25a939198a9608caae85e3803e563aa466cfef56d1",
+  "source_commit": "fb24607cda42c635baf142bf5082e6a2855ad249",
+  "verified_at": "2026-11-08T12:36:07.958Z",
+  "transactions": [
+    {
+      "hash": "GXVfQiLuZDXv88VR8RRvFhDQ36aQbBGB2Ayewp5rtU5E",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "register_profile",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/GXVfQiLuZDXv88VR8RRvFhDQ36aQbBGB2Ayewp5rtU5E",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"profile_registered\",\"data\":[{\"player_id\":\"crewa.bag-heist-mw7swkjh.testnet\"}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140543669137122",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "9R6P2w3hCHuQXggoYVR5sZvDVB5LWCZK5HD88bW82a9",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "storage_deposit",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/9R6P2w3hCHuQXggoYVR5sZvDVB5LWCZK5HD88bW82a9",
+      "logs": [],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140550949149875",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "GhKwytXxjYdJVeNCFr6NhXt8Jv1VHwJTQzLQSRsqcnCk",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "register_profile",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/GhKwytXxjYdJVeNCFr6NhXt8Jv1VHwJTQzLQSRsqcnCk",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"profile_registered\",\"data\":[{\"player_id\":\"crewb.bag-heist-mw7swkjh.testnet\"}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140558244362999",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "A6SD5hAicAeD3BgSEqxaRfUiLHN9TXTpEBsAgXiw28ox",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "storage_deposit",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/A6SD5hAicAeD3BgSEqxaRfUiLHN9TXTpEBsAgXiw28ox",
+      "logs": [],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140565410246706",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "EehubMt73bv4J57WZgiXZk7Md8Ha6g6EznwTKCtUgjGK",
+      "signer_id": "crewc.bag-heist-mw7swkjh.testnet",
+      "method": "register_profile",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/EehubMt73bv4J57WZgiXZk7Md8Ha6g6EznwTKCtUgjGK",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"profile_registered\",\"data\":[{\"player_id\":\"crewc.bag-heist-mw7swkjh.testnet\"}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140572741290300",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "3E3UvinESvTvkGnc8LZ9u5ge6g4vcvWMEqBizRuaLW4R",
+      "signer_id": "crewc.bag-heist-mw7swkjh.testnet",
+      "method": "storage_deposit",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/3E3UvinESvTvkGnc8LZ9u5ge6g4vcvWMEqBizRuaLW4R",
+      "logs": [],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140580029163420",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "6qwSw9R7J5CUJP6knLdaKTHYD3Ax65FPZWnAuEMGAjK1",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "open_round",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/6qwSw9R7J5CUJP6knLdaKTHYD3Ax65FPZWnAuEMGAjK1",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"round_opened\",\"data\":[{\"round_id\":\"1\",\"opened_by\":\"crewb.bag-heist-mw7swkjh.testnet\",\"template\":5,\"transform\":1,\"board_hash\":\"2eb0af116a4298d173e54489316a1d4bc93f132cc1304fa558c068fadfd63374\",\"opened_at\":\"1794140587302263199\",\"commitment_end\":\"1794140707302263199\",\"reveal_end\":\"1794140827302263199\",\"prize\":\"100000000\"}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140587302263199",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "0",
+        "unallocated": "1000000000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "2dHHHXCSgJoxnVQXanks8StC9957imskSNDXG16VjKZS",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "commit_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/2dHHHXCSgJoxnVQXanks8StC9957imskSNDXG16VjKZS",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_committed\",\"data\":[{\"round_id\":\"1\",\"player_id\":\"crewa.bag-heist-mw7swkjh.testnet\",\"sequence\":1,\"use_crowbar\":false,\"commitment_hash\":\"0f508b1b3b4bc50a06fb014cf86cfa2c16ece05df05b625fc47f1b02dd8c38bc\"}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140594563951899",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "FvbecVbYv7Jmt21sTon5GZXgTBR4ohMYxyWXqBsyLQ4h",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "commit_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/FvbecVbYv7Jmt21sTon5GZXgTBR4ohMYxyWXqBsyLQ4h",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_committed\",\"data\":[{\"round_id\":\"1\",\"player_id\":\"crewb.bag-heist-mw7swkjh.testnet\",\"sequence\":2,\"use_crowbar\":false,\"commitment_hash\":\"2700df6057ce33a44608afdeef4b3a50a2140765802382d171c46a9a5c7f812c\"}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140602452103603",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "B8rXnWQdC7ZonvmhgtCPsuuyC5d9PTm3pcBqiiQhavVB",
+      "signer_id": "crewc.bag-heist-mw7swkjh.testnet",
+      "method": "commit_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/B8rXnWQdC7ZonvmhgtCPsuuyC5d9PTm3pcBqiiQhavVB",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_committed\",\"data\":[{\"round_id\":\"1\",\"player_id\":\"crewc.bag-heist-mw7swkjh.testnet\",\"sequence\":3,\"use_crowbar\":false,\"commitment_hash\":\"467ca4322f74f7b209f9137a5c92284d687dc62b9675c3d145bc8d6d6bc548d9\"}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140610350833953",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "6WPFdqSVpps1bdnsSTGHNcsHpV9MWVS4RP1z78ufMu5i",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "reveal_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/6WPFdqSVpps1bdnsSTGHNcsHpV9MWVS4RP1z78ufMu5i",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_revealed\",\"data\":[{\"round_id\":\"1\",\"player_id\":\"crewa.bag-heist-mw7swkjh.testnet\",\"sequence\":1,\"valid\":true,\"verdict\":\"OK\",\"loot\":50,\"length\":16,\"doors\":0,\"leads\":true}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140713287916886",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "9VZYBidBYuq9fXwZoNXzGsGDPEdD3QydnjuU5HmqU9n7",
+      "signer_id": "crewc.bag-heist-mw7swkjh.testnet",
+      "method": "reveal_solution",
+      "outcome": "failure",
+      "explorer_url": "https://testnet.nearblocks.io/txns/9VZYBidBYuq9fXwZoNXzGsGDPEdD3QydnjuU5HmqU9n7",
+      "logs": [],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140720721480237",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "4TdVmnQYwvPkWnEkwdEznPtkuXgxCiv1AiMzFpACaYwL",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "reveal_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/4TdVmnQYwvPkWnEkwdEznPtkuXgxCiv1AiMzFpACaYwL",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_revealed\",\"data\":[{\"round_id\":\"1\",\"player_id\":\"crewb.bag-heist-mw7swkjh.testnet\",\"sequence\":2,\"valid\":true,\"verdict\":\"OK\",\"loot\":40,\"length\":12,\"doors\":0,\"leads\":false}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140727785471506",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "EAFWFwx9XAxK5u1mcpFJVJ2URhT59VSzrBtDBfh81B2f",
+      "signer_id": "crewc.bag-heist-mw7swkjh.testnet",
+      "method": "reveal_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/EAFWFwx9XAxK5u1mcpFJVJ2URhT59VSzrBtDBfh81B2f",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_revealed\",\"data\":[{\"round_id\":\"1\",\"player_id\":\"crewc.bag-heist-mw7swkjh.testnet\",\"sequence\":3,\"valid\":true,\"verdict\":\"OK\",\"loot\":28,\"length\":10,\"doors\":0,\"leads\":false}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140735610719165",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "9t4XMi99zREN15fu6PX33YVQenK1h1UJuVC2jkFpUjxh",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "finalize_round",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/9t4XMi99zREN15fu6PX33YVQenK1h1UJuVC2jkFpUjxh",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"round_finalized\",\"data\":[{\"round_id\":\"1\",\"outcome\":\"winner\",\"winner\":\"crewa.bag-heist-mw7swkjh.testnet\",\"loot\":50,\"length\":16,\"sequence\":1,\"prize\":\"100000000\",\"valid_reveals\":3,\"participants\":3}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140833110950689",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "5zzjHgVkXPJbiM5a5xQ1488zaZZ19Ko7qp4c34Th88Ve",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "claim_reward",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/5zzjHgVkXPJbiM5a5xQ1488zaZZ19Ko7qp4c34Th88Ve",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"nep141\",\"version\":\"1.0.0\",\"event\":\"ft_transfer\",\"data\":[{\"old_owner_id\":\"bag-heist-mw7swkjh.testnet\",\"new_owner_id\":\"crewa.bag-heist-mw7swkjh.testnet\",\"amount\":\"100000000\",\"memo\":\"BAG HEIST round prize\"}]}",
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"reward_claimed\",\"data\":[{\"round_id\":\"1\",\"winner\":\"crewa.bag-heist-mw7swkjh.testnet\",\"amount\":\"100000000\"}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140839178196534",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "1000000000000",
+        "reserved": "100000000",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "1000000000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "0",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "999900000000",
+        "reserved": "0",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "100000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "FHU4wh2e6yFCQjGNbA3GQRrJoq7KZuDDzVY2fJnruEpd",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "claim_reward",
+      "outcome": "failure",
+      "explorer_url": "https://testnet.nearblocks.io/txns/FHU4wh2e6yFCQjGNbA3GQRrJoq7KZuDDzVY2fJnruEpd",
+      "logs": [],
+      "supply_before": "1000000000000",
+      "supply_after": "1000000000000",
+      "block_timestamp": "1794140845182665344",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "999900000000",
+        "reserved": "0",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "100000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "1000000000000",
+        "treasury": "999900000000",
+        "reserved": "0",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "100000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "GdL8d9krksLxzpomkzLLrmLPavJziZDgpi6wgqjN6tNw",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "craft_crowbar",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/GdL8d9krksLxzpomkzLLrmLPavJziZDgpi6wgqjN6tNw",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"nep141\",\"version\":\"1.0.0\",\"event\":\"ft_burn\",\"data\":[{\"owner_id\":\"crewa.bag-heist-mw7swkjh.testnet\",\"amount\":\"5000000\",\"memo\":\"crowbar crafted\"}]}",
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"crowbar_crafted\",\"data\":[{\"player_id\":\"crewa.bag-heist-mw7swkjh.testnet\",\"serial\":1,\"burned\":\"5000000\",\"crowbars\":1}]}"
+      ],
+      "supply_before": "1000000000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794140851380996106",
+      "before": {
+        "total_supply": "1000000000000",
+        "treasury": "999900000000",
+        "reserved": "0",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "100000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "0",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "3TVzMKJEcAGn31AVKRny5JpXX9wk7NQEFpU3pKPxLNZB",
+      "signer_id": "crewc.bag-heist-mw7swkjh.testnet",
+      "method": "open_round",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/3TVzMKJEcAGn31AVKRny5JpXX9wk7NQEFpU3pKPxLNZB",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"round_opened\",\"data\":[{\"round_id\":\"2\",\"opened_by\":\"crewc.bag-heist-mw7swkjh.testnet\",\"template\":5,\"transform\":1,\"board_hash\":\"2eb0af116a4298d173e54489316a1d4bc93f132cc1304fa558c068fadfd63374\",\"opened_at\":\"1794140856757933758\",\"commitment_end\":\"1794140976757933758\",\"reveal_end\":\"1794141096757933758\",\"prize\":\"100000000\"}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794140856757933758",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "0",
+        "unallocated": "999900000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "7QpUgzY6z4rY6cecvLop5BKuh1DQf4ATECLa82o2Pwrm",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "commit_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/7QpUgzY6z4rY6cecvLop5BKuh1DQf4ATECLa82o2Pwrm",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"crowbar_consumed\",\"data\":[{\"round_id\":\"2\",\"player_id\":\"crewa.bag-heist-mw7swkjh.testnet\",\"serial\":1,\"crowbars_left\":0}]}",
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_committed\",\"data\":[{\"round_id\":\"2\",\"player_id\":\"crewa.bag-heist-mw7swkjh.testnet\",\"sequence\":1,\"use_crowbar\":true,\"commitment_hash\":\"0eb0c9eb92f57b98566e1b7ebda5322eb2117adaf711cfca42f1f7cd06a29a6d\"}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794140862885691424",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "8K9ryGyHiXKqZeeu7mjg7EfJQ8Hd3b73Q2aQ2YE4nQVy",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "commit_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/8K9ryGyHiXKqZeeu7mjg7EfJQ8Hd3b73Q2aQ2YE4nQVy",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_committed\",\"data\":[{\"round_id\":\"2\",\"player_id\":\"crewb.bag-heist-mw7swkjh.testnet\",\"sequence\":2,\"use_crowbar\":false,\"commitment_hash\":\"cceb76855a860a1ca473c54120f86b39abad753e956d5890845e789d5a057f33\"}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794140868867473148",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "3QV3dNQmTXoU9dBByFvLE1d1QDLazGv9kZZo5new12hT",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "reveal_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/3QV3dNQmTXoU9dBByFvLE1d1QDLazGv9kZZo5new12hT",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_revealed\",\"data\":[{\"round_id\":\"2\",\"player_id\":\"crewa.bag-heist-mw7swkjh.testnet\",\"sequence\":1,\"valid\":true,\"verdict\":\"OK\",\"loot\":59,\"length\":18,\"doors\":1,\"leads\":true}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794140982972893795",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "9nwUMDW9kBHv2KsyDiK6qLEBR9HUdG5ffS2ruJQyNWHb",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "reveal_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/9nwUMDW9kBHv2KsyDiK6qLEBR9HUdG5ffS2ruJQyNWHb",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_revealed\",\"data\":[{\"round_id\":\"2\",\"player_id\":\"crewb.bag-heist-mw7swkjh.testnet\",\"sequence\":2,\"valid\":true,\"verdict\":\"OK\",\"loot\":50,\"length\":16,\"doors\":0,\"leads\":false}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794140990785931586",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "9gKhpixhptDyMsgTV7yvM2MsF79QKXVTtVA5FaGotdKH",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "finalize_round",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/9gKhpixhptDyMsgTV7yvM2MsF79QKXVTtVA5FaGotdKH",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"round_finalized\",\"data\":[{\"round_id\":\"2\",\"outcome\":\"winner\",\"winner\":\"crewa.bag-heist-mw7swkjh.testnet\",\"loot\":59,\"length\":18,\"sequence\":1,\"prize\":\"100000000\",\"valid_reveals\":2,\"participants\":2}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794141103043735480",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "CfhUYBKpkHtTGoKRQA1yXyF84XDe2sVEJtQ1AoqyCRzY",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "claim_reward",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/CfhUYBKpkHtTGoKRQA1yXyF84XDe2sVEJtQ1AoqyCRzY",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"nep141\",\"version\":\"1.0.0\",\"event\":\"ft_transfer\",\"data\":[{\"old_owner_id\":\"bag-heist-mw7swkjh.testnet\",\"new_owner_id\":\"crewa.bag-heist-mw7swkjh.testnet\",\"amount\":\"100000000\",\"memo\":\"BAG HEIST round prize\"}]}",
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"reward_claimed\",\"data\":[{\"round_id\":\"2\",\"winner\":\"crewa.bag-heist-mw7swkjh.testnet\",\"amount\":\"100000000\"}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794141109161997713",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999900000000",
+        "reserved": "100000000",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999900000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "95000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999800000000",
+        "reserved": "0",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999800000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "195000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "J5pCBPgp9VR4ixJBDoc8TFwd56pgq2j6DgQp3c6r8GRE",
+      "signer_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "method": "open_round",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/J5pCBPgp9VR4ixJBDoc8TFwd56pgq2j6DgQp3c6r8GRE",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"round_opened\",\"data\":[{\"round_id\":\"3\",\"opened_by\":\"crewa.bag-heist-mw7swkjh.testnet\",\"template\":3,\"transform\":4,\"board_hash\":\"e22c07c0a2c2778efdf3d3ef2926e19e7facb1bb642455503d835c173cb6b497\",\"opened_at\":\"1794141115749761154\",\"commitment_end\":\"1794141235749761154\",\"reveal_end\":\"1794141355749761154\",\"prize\":\"100000000\"}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794141115749761154",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999800000000",
+        "reserved": "0",
+        "unallocated": "999800000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999800000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "195000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999800000000",
+        "reserved": "100000000",
+        "unallocated": "999700000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999800000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "195000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "7nEhe6uxCG37LjMvNfXRwxKzxNaMCfHNYDMeTBgi9mwm",
+      "signer_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "method": "commit_solution",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/7nEhe6uxCG37LjMvNfXRwxKzxNaMCfHNYDMeTBgi9mwm",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"solution_committed\",\"data\":[{\"round_id\":\"3\",\"player_id\":\"crewb.bag-heist-mw7swkjh.testnet\",\"sequence\":1,\"use_crowbar\":false,\"commitment_hash\":\"2d19a547e12db785abc41f852df7dda6a59cb4632b9a5ebb3a53410751792d48\"}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999995000000",
+      "block_timestamp": "1794141121908179771",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999800000000",
+        "reserved": "100000000",
+        "unallocated": "999700000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999800000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "195000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999995000000",
+        "treasury": "999800000000",
+        "reserved": "100000000",
+        "unallocated": "999700000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999800000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "195000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    },
+    {
+      "hash": "HW4nf6db1ix9G3vB9RoSoJsnm8EuQYXm3JkPeC3Ve3Ze",
+      "signer_id": "crewc.bag-heist-mw7swkjh.testnet",
+      "method": "finalize_round",
+      "outcome": "success",
+      "explorer_url": "https://testnet.nearblocks.io/txns/HW4nf6db1ix9G3vB9RoSoJsnm8EuQYXm3JkPeC3Ve3Ze",
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"nep141\",\"version\":\"1.0.0\",\"event\":\"ft_burn\",\"data\":[{\"owner_id\":\"bag-heist-mw7swkjh.testnet\",\"amount\":\"100000000\",\"memo\":\"expired round pot\"}]}",
+        "EVENT_JSON:{\"standard\":\"bag_heist\",\"version\":\"1.0.0\",\"event\":\"round_finalized\",\"data\":[{\"round_id\":\"3\",\"outcome\":\"burned\",\"burned\":\"100000000\",\"valid_reveals\":0,\"participants\":1}]}"
+      ],
+      "supply_before": "999995000000",
+      "supply_after": "999895000000",
+      "block_timestamp": "1794141361520806766",
+      "before": {
+        "total_supply": "999995000000",
+        "treasury": "999800000000",
+        "reserved": "100000000",
+        "unallocated": "999700000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999800000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "195000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      },
+      "after": {
+        "total_supply": "999895000000",
+        "treasury": "999700000000",
+        "reserved": "0",
+        "unallocated": "999700000000",
+        "balances": {
+          "bag-heist-mw7swkjh.testnet": "999700000000",
+          "crewa.bag-heist-mw7swkjh.testnet": "195000000",
+          "crewb.bag-heist-mw7swkjh.testnet": "0",
+          "crewc.bag-heist-mw7swkjh.testnet": "0"
+        }
+      }
+    }
+  ],
+  "final_state": {
+    "round_count": "3",
+    "current_round_id": "3",
+    "current_phase": "finalized",
+    "profile_count": "3",
+    "total_supply": "999895000000",
+    "treasury_balance": "999700000000",
+    "unallocated_game_budget": "999700000000",
+    "reserved_prizes": "0",
+    "cumulative_rewards_paid": "200000000",
+    "cumulative_expired_pots_burned": "100000000",
+    "cumulative_crafting_burned": "5000000",
+    "cumulative_storage_burned": "0",
+    "cumulative_resolver_burned": "0",
+    "budget_identity_holds": true,
+    "treasury_covers_budget": true,
+    "supply_audit_holds": true,
+    "block_timestamp": "1794141366327332540",
+    "block_height": "276776565"
+  },
+  "rounds": [
+    {
+      "id": "1",
+      "template": 5,
+      "template_name": "Server Hall",
+      "transform": 1,
+      "board": {
+        "start": 5,
+        "exit": 30,
+        "tiles": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        "loot": [
+          0,
+          9,
+          5,
+          1,
+          3,
+          0,
+          0,
+          0,
+          9,
+          0,
+          0,
+          0,
+          2,
+          5,
+          2,
+          2,
+          3,
+          0,
+          9,
+          0,
+          0,
+          0,
+          2,
+          0,
+          5,
+          3,
+          4,
+          0,
+          6,
+          0,
+          0,
+          1,
+          0,
+          0,
+          6,
+          1
+        ]
+      },
+      "board_hash": "2eb0af116a4298d173e54489316a1d4bc93f132cc1304fa558c068fadfd63374",
+      "opened_by": "crewb.bag-heist-mw7swkjh.testnet",
+      "opened_at": "1794140587302263199",
+      "commitment_end": "1794140707302263199",
+      "reveal_end": "1794140827302263199",
+      "participants": 3,
+      "valid_reveals": 3,
+      "invalid_reveals": 0,
+      "best": {
+        "player_id": "crewa.bag-heist-mw7swkjh.testnet",
+        "loot": 50,
+        "length": 16,
+        "sequence": 1
+      },
+      "finalized": true,
+      "finalized_at": "1794140833110950689",
+      "winner": "crewa.bag-heist-mw7swkjh.testnet",
+      "prize": "100000000",
+      "claimed": true,
+      "burned": false,
+      "phase": "finalized"
+    },
+    {
+      "id": "2",
+      "template": 5,
+      "template_name": "Server Hall",
+      "transform": 1,
+      "board": {
+        "start": 5,
+        "exit": 30,
+        "tiles": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          2,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          1,
+          0,
+          0
+        ],
+        "loot": [
+          0,
+          9,
+          5,
+          1,
+          3,
+          0,
+          0,
+          0,
+          9,
+          0,
+          0,
+          0,
+          2,
+          5,
+          2,
+          2,
+          3,
+          0,
+          9,
+          0,
+          0,
+          0,
+          2,
+          0,
+          5,
+          3,
+          4,
+          0,
+          6,
+          0,
+          0,
+          1,
+          0,
+          0,
+          6,
+          1
+        ]
+      },
+      "board_hash": "2eb0af116a4298d173e54489316a1d4bc93f132cc1304fa558c068fadfd63374",
+      "opened_by": "crewc.bag-heist-mw7swkjh.testnet",
+      "opened_at": "1794140856757933758",
+      "commitment_end": "1794140976757933758",
+      "reveal_end": "1794141096757933758",
+      "participants": 2,
+      "valid_reveals": 2,
+      "invalid_reveals": 0,
+      "best": {
+        "player_id": "crewa.bag-heist-mw7swkjh.testnet",
+        "loot": 59,
+        "length": 18,
+        "sequence": 1
+      },
+      "finalized": true,
+      "finalized_at": "1794141103043735480",
+      "winner": "crewa.bag-heist-mw7swkjh.testnet",
+      "prize": "100000000",
+      "claimed": true,
+      "burned": false,
+      "phase": "finalized"
+    },
+    {
+      "id": "3",
+      "template": 3,
+      "template_name": "Cold Storage",
+      "transform": 4,
+      "board": {
+        "start": 5,
+        "exit": 30,
+        "tiles": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        "loot": [
+          5,
+          0,
+          0,
+          4,
+          0,
+          0,
+          0,
+          1,
+          5,
+          1,
+          0,
+          4,
+          9,
+          0,
+          0,
+          0,
+          0,
+          6,
+          1,
+          0,
+          2,
+          6,
+          7,
+          0,
+          1,
+          0,
+          0,
+          3,
+          2,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "board_hash": "e22c07c0a2c2778efdf3d3ef2926e19e7facb1bb642455503d835c173cb6b497",
+      "opened_by": "crewa.bag-heist-mw7swkjh.testnet",
+      "opened_at": "1794141115749761154",
+      "commitment_end": "1794141235749761154",
+      "reveal_end": "1794141355749761154",
+      "participants": 1,
+      "valid_reveals": 0,
+      "invalid_reveals": 0,
+      "best": null,
+      "finalized": true,
+      "finalized_at": "1794141361520806766",
+      "winner": null,
+      "prize": "100000000",
+      "claimed": false,
+      "burned": true,
+      "phase": "finalized"
+    }
+  ],
+  "crowbars": [
+    {
+      "owner_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "serial": 1,
+      "status": "consumed",
+      "consumed_in_round": "2"
+    }
+  ]
+}

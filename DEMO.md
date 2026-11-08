@@ -1,5 +1,22 @@
 # Judge demonstration
 
+## Recorded testnet walkthrough
+
+The published release contains **28 real game transactions across three rounds**, independently checked by `pnpm verify:testnet`. The public bundle at `public/evidence/testnet.json` includes final outcomes, receipt logs, block timestamps, balance/supply snapshots, round results, and the consumed crowbar record.
+
+| Demonstrated result | Transaction |
+|---|---|
+| Copied reveal rejected with `COMMITMENT_MISMATCH` | [9VZYBid…](https://testnet.nearblocks.io/txns/9VZYBidBYuq9fXwZoNXzGsGDPEdD3QydnjuU5HmqU9n7) |
+| Round 1 winner claims exactly 100 BAG | [5zzjHgV…](https://testnet.nearblocks.io/txns/5zzjHgVkXPJbiM5a5xQ1488zaZZ19Ko7qp4c34Th88Ve) |
+| Repeated claim rejected with `ALREADY_CLAIMED` | [FHU4wh2…](https://testnet.nearblocks.io/txns/FHU4wh2e6yFCQjGNbA3GQRrJoq7KZuDDzVY2fJnruEpd) |
+| Crafting burns 5 BAG | [GdL8d9k…](https://testnet.nearblocks.io/txns/GdL8d9krksLxzpomkzLLrmLPavJziZDgpi6wgqjN6tNw) |
+| Later commitment consumes crowbar serial 1 | [7QpUgzY…](https://testnet.nearblocks.io/txns/7QpUgzY6z4rY6cecvLop5BKuh1DQf4ATECLa82o2Pwrm) |
+| Door route accepted: 59 loot, 18 moves | [3QV3dNQ…](https://testnet.nearblocks.io/txns/3QV3dNQmTXoU9dBByFvLE1d1QDLazGv9kZZo5new12hT) |
+| Round 2 prize claimed | [CfhUYBK…](https://testnet.nearblocks.io/txns/CfhUYBKpkHtTGoKRQA1yXyF84XDe2sVEJtQ1AoqyCRzY) |
+| Zero-valid-reveal round burns 100 BAG | [HW4nf6d…](https://testnet.nearblocks.io/txns/HW4nf6db1ix9G3vB9RoSoJsnm8EuQYXm3JkPeC3Ve3Ze) |
+
+At the recorded close: supply **999,895 BAG**, treasury/unallocated budget **999,700 BAG**, rewards paid **200 BAG**, expired-pot burns **100 BAG**, crafting burns **5 BAG**, and reserved prizes **0 BAG**. All three contract audits returned true. Real chain timestamps governed every 120-second window.
+
 ## Reproducible walkthrough
 
 Start with `pnpm dev`. Keep the **Practice floor** label visible whenever using its accelerated clock; it demonstrates the product flow and never presents local events as chain receipts.
