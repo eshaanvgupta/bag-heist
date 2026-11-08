@@ -284,7 +284,7 @@ export default function App() {
 
         {mode === 'testnet' && !liveReady ? started && <section className="panel live-gate"><p className="eyebrow">NEAR testnet</p><h2>Opening the live vault</h2><p role="status">{notice.state === 'unavailable' || notice.state === 'failed' ? notice.message : 'Fetching the latest round, treasury, and player state from NEAR.'}</p></section> : started ? <div id="vault-game">
         <section className="economy-strip">
-          <Metric label="Prize reserve" value={`${round ? bag(round.prize) : '0'} BAG`} detail="fixed per round" />
+          <Metric label="Prize reserve" value={`${round && !round.claimed && !round.burned ? bag(round.prize) : '0'} BAG`} detail={round?.claimed ? 'prize paid to winner' : round?.burned ? 'expired pot burned' : '100 BAG per round'} />
           <Metric label="Current supply" value={`${bag(snapshot.economy.total_supply)} BAG`} detail={`burned ${bag(BigInt(snapshot.config.initial_supply) - BigInt(snapshot.economy.total_supply))}`} />
           <Metric label="Your balance" value={`${bag(snapshot.balance)} BAG`} detail={snapshot.account || 'wallet disconnected'} />
           <Metric label="Crowbars" value={String(profile?.crowbars ?? 0)} detail="one locked door each" />
