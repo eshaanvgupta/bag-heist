@@ -2,11 +2,12 @@ import { createHash } from 'node:crypto';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import build from '../res/contract-build.json';
+import deployment from '../public/evidence/deployment.json';
 
 const root = resolve(import.meta.dirname, '..');
 const artifact = resolve(root, build.artifact);
-const rpcUrl = process.env.NEAR_RPC_URL || 'https://rpc.testnet.near.org';
-const contract = process.env.NEAR_CONTRACT_ID || '<new-account>.testnet';
+const rpcUrl = process.env.NEAR_RPC_URL || deployment.rpc_url;
+const contract = process.env.NEAR_CONTRACT_ID || deployment.contract_id;
 
 async function prepare() {
   if (!existsSync(artifact)) throw new Error('Missing contract artifact; run pnpm build:contract.');
@@ -25,8 +26,8 @@ async function prepare() {
 }
 
 function demo() {
-  const path = resolve(root, 'runtime/testnet-evidence.json');
-  if (!existsSync(path)) {
+  const path = [resolve(root, 'runtime/testnet-evidence.json'), resolve(root, 'public/evidence/testnet.json')].find(existsSync);
+  if (!path) {
     console.error('unavailable: no verified testnet evidence. Follow TESTNET.md after authorized deployment.');
     process.exit(2);
   }

@@ -12,7 +12,7 @@ Start with `pnpm dev`. Keep the **Practice floor** label visible whenever using 
 6. Craft a crowbar. Show balance and total supply each fall by exactly 5 BAG.
 7. Open a later vault, select a door route, and explain that the crowbar is consumed when the commitment succeeds—even if reveal is missed.
 8. Finalize a round with zero valid reveals. Show the reserved 100 BAG move to expired-pot burns and leave total supply.
-9. Open **Evidence room**. Show the reproducible WASM hash, fixture corpus, and—after deployment—the validated public testnet record.
+9. Open **Evidence room**. Show the reproducible WASM hash, fixture corpus, and validated public testnet record.
 
 For the recorded testnet version, use two legitimate players and a third account for the copied reveal attempt. Observe the real 120-second windows; video cuts must be labelled with the before/after block timestamps.
 

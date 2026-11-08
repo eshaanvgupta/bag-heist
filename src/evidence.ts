@@ -35,6 +35,7 @@ function assertEvidence(value: unknown): TestnetEvidence {
   if (!value || typeof value !== 'object') throw new Error('Evidence file is not an object.');
   const evidence = value as TestnetEvidence;
   if (evidence.schema !== 'bag-heist-testnet-evidence-v1' || evidence.network !== 'testnet') throw new Error('Evidence schema or network does not match BAG HEIST testnet.');
+  if (evidence.wasm_sha256 !== build.sha256 || !/^[1-9A-HJ-NP-Za-km-z]{40,50}$/.test(evidence.code_hash)) throw new Error('Evidence does not identify the compiled BAG HEIST release.');
   if (!/^[a-z0-9._-]+\.testnet$/.test(evidence.contract_id) || !/^[0-9a-f]{64}$/.test(evidence.wasm_sha256) || !Array.isArray(evidence.transactions)) throw new Error('Evidence identity is malformed.');
   for (const transaction of evidence.transactions) {
     if (!/^[1-9A-HJ-NP-Za-km-z]{40,50}$/.test(transaction.hash) || !['success', 'failure'].includes(transaction.outcome)) throw new Error('Evidence contains a malformed transaction record.');

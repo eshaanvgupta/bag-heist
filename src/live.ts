@@ -1,7 +1,7 @@
-import type { WalletSelector, Wallet } from '@near-wallet-selector/core';
+import type { WalletSelector, Wallet, BrowserWallet } from '@near-wallet-selector/core';
 import type { Commitment, Config, Economy, Profile, Round, Snapshot } from './types';
 
-export const RPC_URL = import.meta.env.VITE_RPC_URL || 'https://rpc.testnet.near.org';
+export const RPC_URL = import.meta.env.VITE_RPC_URL || 'https://test.rpc.fastnear.com';
 const PENDING = 'bag-heist:pending:v1';
 export interface PendingTransaction { contractId: string; accountId: string; method: string; hash?: string; createdAt: string }
 export interface TransactionResult { status: 'confirmed' | 'failed' | 'pending' | 'unavailable'; hash: string; message: string }
@@ -47,7 +47,7 @@ export async function loadSnapshot(contractId: string, account: string | null, s
 }
 let selectorPromise: Promise<WalletSelector> | undefined;
 export function selector(): Promise<WalletSelector> {
-  selectorPromise ??= Promise.all([import('@near-wallet-selector/core'), import('@near-wallet-selector/my-near-wallet')]).then(([core, wallet]) => core.setupWalletSelector({ network: 'testnet', modules: [wallet.setupMyNearWallet({ walletUrl: 'https://testnet.mynearwallet.com' })] }));
+  selectorPromise ??= Promise.all([import('@near-wallet-selector/core'), import('@near-wallet-selector/my-near-wallet')]).then(([core, wallet]) => core.setupWalletSelector({ network: { networkId: 'testnet', nodeUrl: RPC_URL, helperUrl: 'https://helper.nearprotocol.com', explorerUrl: 'https://testnet.nearblocks.io', indexerUrl: 'https://api-testnet.nearblocks.io' }, modules: [wallet.setupMyNearWallet({ walletUrl: 'https://testnet.mynearwallet.com' })] }));
   return selectorPromise;
 }
 export async function currentAccount(): Promise<string | null> {
@@ -55,7 +55,10 @@ export async function currentAccount(): Promise<string | null> {
 }
 export async function connectWallet(contractId: string): Promise<string | null> {
   const client = await selector(), wallet = await client.wallet('my-near-wallet');
-  await (wallet as any).signIn({ contractId });
+  const returnUrl = new URL(window.location.href);
+  returnUrl.search = '';
+  returnUrl.hash = '';
+  await (wallet as BrowserWallet).signIn({ contractId, successUrl: returnUrl.href, failureUrl: returnUrl.href });
   return currentAccount();
 }
 export async function disconnectWallet() {

@@ -1,0 +1,124 @@
+{
+  "network": "testnet",
+  "contract_id": "bag-heist-mw7swkjh.testnet",
+  "rpc_url": "https://test.rpc.fastnear.com",
+  "source_commit": "79ea7b7ff06b53e7e253005e0f6eaaa7679b20c4",
+  "code_hash": "2ybn6Uzughan9SHbLZ2XyANYuTq41LmNK5fSrimuGGDe",
+  "deployed_at": "2026-11-08T12:21:28.340Z",
+  "keys": [
+    {
+      "access_key": {
+        "nonce": 276775030000004,
+        "permission": "FullAccess"
+      },
+      "public_key": "ed25519:7WfeuwhLtS91NE4Lwi2fHcQgnPP9vK17HdK4mdK59w2i"
+    }
+  ],
+  "roles": {
+    "contract": {
+      "account_id": "bag-heist-mw7swkjh.testnet",
+      "public_key": "ed25519:7WfeuwhLtS91NE4Lwi2fHcQgnPP9vK17HdK4mdK59w2i"
+    },
+    "crewA": {
+      "account_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "public_key": "ed25519:5ifjsNMR5QvdLQKjHRghkYDzAzWW68fD12CMVgzLMwsW"
+    },
+    "crewB": {
+      "account_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "public_key": "ed25519:BEfLUFPEPPRSv9yGBTppJh26CycDK28H6qxRJfTgB4go"
+    },
+    "crewC": {
+      "account_id": "crewc.bag-heist-mw7swkjh.testnet",
+      "public_key": "ed25519:14pq967VvmVk2JB72o5eMt7N6WCggjaJXwnAcYgNTFrk"
+    }
+  },
+  "transactions": [
+    {
+      "method": "deploy_and_initialize",
+      "tx_hash": "FYpnEQBm6jKQp2pzMYkoGqPL84UdY5FbYfKgp1t8BXpz",
+      "signer_id": "bag-heist-mw7swkjh.testnet",
+      "receiver_id": "bag-heist-mw7swkjh.testnet",
+      "outcome": "success",
+      "error": null,
+      "logs": [
+        "EVENT_JSON:{\"standard\":\"nep141\",\"version\":\"1.0.0\",\"event\":\"ft_mint\",\"data\":[{\"owner_id\":\"bag-heist-mw7swkjh.testnet\",\"amount\":\"1000000000000\",\"memo\":\"BAG HEIST fixed supply\"}]}"
+      ],
+      "events": [
+        {
+          "standard": "nep141",
+          "version": "1.0.0",
+          "event": "ft_mint",
+          "data": [
+            {
+              "owner_id": "bag-heist-mw7swkjh.testnet",
+              "amount": "1000000000000",
+              "memo": "BAG HEIST fixed supply"
+            }
+          ]
+        }
+      ],
+      "gas_burnt": "21640203755512",
+      "first_receipt_block": "GWu3E384tLSFo9uK3QZY9ofWQ4PnfKpnnCug6uHHRFz4",
+      "return_value": null
+    },
+    {
+      "method": "create_account",
+      "tx_hash": "4oZTLnUDKVB9M3cmJMLhL6gH4HqhZzx2zXPd7sFtLTGf",
+      "signer_id": "bag-heist-mw7swkjh.testnet",
+      "receiver_id": "crewa.bag-heist-mw7swkjh.testnet",
+      "outcome": "success",
+      "error": null,
+      "logs": [],
+      "events": [],
+      "gas_burnt": "8573077937500",
+      "first_receipt_block": "FJECoP7Y2vKmhMrHAWDTDY2vcHpKynYshFUfstsMvnX",
+      "return_value": null
+    },
+    {
+      "method": "create_account",
+      "tx_hash": "DH3uvmVo8EtAPbBuYboU21nfYSJ69Z2E6MJV6iBdgrmq",
+      "signer_id": "bag-heist-mw7swkjh.testnet",
+      "receiver_id": "crewb.bag-heist-mw7swkjh.testnet",
+      "outcome": "success",
+      "error": null,
+      "logs": [],
+      "events": [],
+      "gas_burnt": "8573077937500",
+      "first_receipt_block": "FFEB2pz7KssTd8Fz91NRimYDU9J3GWJMktJpkN6c9EMM",
+      "return_value": null
+    },
+    {
+      "method": "create_account",
+      "tx_hash": "4u6VVjze7BhJCg1KeVaQoenWsg8XCUWXvfJjTc38mLMA",
+      "signer_id": "bag-heist-mw7swkjh.testnet",
+      "receiver_id": "crewc.bag-heist-mw7swkjh.testnet",
+      "outcome": "success",
+      "error": null,
+      "logs": [],
+      "events": [],
+      "gas_burnt": "8573077937500",
+      "first_receipt_block": "6GaGhcUDfsQ919FA1Sdyjer4SjvZzfiygfpeyMLtr6hP",
+      "return_value": null
+    }
+  ],
+  "initial_state": {
+    "round_count": "0",
+    "current_round_id": null,
+    "current_phase": null,
+    "profile_count": "0",
+    "total_supply": "1000000000000",
+    "treasury_balance": "1000000000000",
+    "unallocated_game_budget": "1000000000000",
+    "reserved_prizes": "0",
+    "cumulative_rewards_paid": "0",
+    "cumulative_expired_pots_burned": "0",
+    "cumulative_crafting_burned": "0",
+    "cumulative_storage_burned": "0",
+    "cumulative_resolver_burned": "0",
+    "budget_identity_holds": true,
+    "treasury_covers_budget": true,
+    "supply_audit_holds": true,
+    "block_timestamp": "1794140486580887530",
+    "block_height": "276775074"
+  }
+}

@@ -19,7 +19,10 @@ describe('Practice Offline Engine', () => {
     const practice = new Practice(storage);
     const player = 'you.testnet';
 
-    // 1. Initial snapshot has open round 1
+    expect(practice.snapshot(player).round).toBeNull();
+    expect(practice.snapshot(player).economy.reserved_prizes).toBe('0');
+    practice.open();
+    // 1. Starting the heist opens round 1
     const snap1 = practice.snapshot(player);
     expect(snap1.round).toBeDefined();
     expect(snap1.round?.id).toBe('1');
@@ -97,6 +100,7 @@ describe('Practice Offline Engine', () => {
     const practice = new Practice(storage);
     const player = 'you.testnet';
 
+    practice.open();
     // Advance through commit and reveal without any submissions
     practice.advance(); // into reveal
     practice.advance(); // into settle

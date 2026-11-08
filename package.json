@@ -22,6 +22,9 @@
     "test:browser": "playwright test",
     "fixtures": "tsx scripts/generate-fixtures.ts",
     "testnet:prepare": "tsx scripts/testnet.ts prepare",
+    "testnet:deploy": "node scripts/deploy-testnet.mjs",
+    "demo:testnet:record": "tsx scripts/record-testnet.mjs",
+    "verify:browser:live": "node scripts/smoke-live.mjs",
     "demo:testnet": "tsx scripts/testnet.ts demo",
     "verify:release": "tsx scripts/verify-testnet.ts --release-only",
     "verify:testnet": "tsx scripts/verify-testnet.ts"

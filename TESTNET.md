@@ -2,6 +2,12 @@
 
 This guide separates release verification from chain evidence. It never treats a local simulation, planned account, or placeholder hash as a testnet transaction.
 
+## Published deployment
+
+The GitHub Pages application connects directly to `bag-heist-mw7swkjh.testnet` by default. Its code hash is `2ybn6Uzughan9SHbLZ2XyANYuTq41LmNK5fSrimuGGDe`. The deployment/initialization transaction is `FYpnEQBm6jKQp2pzMYkoGqPL84UdY5FbYfKgp1t8BXpz`. See `public/evidence/deployment.json` for the public full-access key and demo player roles. Credentials are stored only in ignored `runtime/deployment-credentials.json` on the operator's machine.
+
+Live rounds are shared by all players and keep running according to chain time. Start enters the board; it never resets an existing live round. A fresh practice round is created only when its user presses Start.
+
 ## Prepare
 
 ```bash
@@ -17,7 +23,7 @@ pnpm testnet:prepare
 
 `testnet:prepare` checks the compiled artifact and testnet RPC, then prints the exact deployment plan. The release artifact is `res/bag_heist.wasm`; compare its SHA-256 with `res/contract-build.json` before signing.
 
-Set public identities without committing credentials:
+For an independent deployment, set public identities without committing credentials:
 
 ```bash
 NEAR_NETWORK=testnet
@@ -29,6 +35,10 @@ NEAR_RPC_URL=https://rpc.testnet.near.org
 Credentials belong in the NEAR CLI keychain or ignored runtime files. The repository contains no private key.
 
 ## Authorized deployment
+
+The included `pnpm testnet:deploy` script provisions a dedicated account through NEAR's official free testnet faucet, stores credentials under ignored `runtime/`, deploys and initializes atomically, creates three independent demo accounts, and records public deployment evidence. It reuses its existing local identity on repeat runs and checks prior attempts before issuing transactions.
+
+`pnpm demo:testnet:record` executes the real three-round walkthrough against those accounts and saves every completed step before proceeding. It waits for chain timestamps without shortening the deployed windows. `pnpm demo:testnet` prints the saved public receipt set.
 
 Using current `near-cli-rs` syntax:
 

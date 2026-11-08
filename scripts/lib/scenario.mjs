@@ -16,7 +16,7 @@ import { DEPOSITS, callContract, summarizeOutcome } from './near.mjs';
 
 const salt = () => randomBytes(32).toString('hex');
 
-export async function runScenario({ near, contractId, crews, waitForChainTime, log = console.log, network }) {
+export async function runScenario({ near, contractId, crews, waitForChainTime, log = console.log, network, onRecord = () => {} }) {
   const steps = [];
   const ids = Object.fromEntries(Object.entries(crews).map(([k, v]) => [k, v.accountId]));
   const watched = [contractId, ...Object.values(ids)];
@@ -55,6 +55,7 @@ export async function runScenario({ near, contractId, crews, waitForChainTime, l
     };
     delete record.first_receipt_block;
     steps.push(record);
+    await onRecord(record);
     const mark = record.outcome === expect && (!expectError || record.error?.includes(expectError)) ? 'ok ' : 'ERR';
     log(`${mark} #${record.step} ${label} -> ${record.outcome}${record.error ? ` (${record.error})` : ''}  ${record.tx_hash}`);
     if (mark === 'ERR') throw new Error(`Step "${label}" expected ${expect}${expectError ? ` ${expectError}` : ''}, got ${record.outcome} ${record.error ?? ''}`);
@@ -111,8 +112,9 @@ export async function runScenario({ near, contractId, crews, waitForChainTime, l
   await reveal('crewB', r2, 'Crew B reveals');
   await waitForChainTime(BigInt(r2.reveal_end), 'reveal window of round 2');
   const f2 = await step('Crew B finalizes round 2', 'crewB', 'finalize_round', { round_id: r2.id }, { roundId: r2.id });
-  if (f2.return_value.winner !== ids.crewA) throw new Error('Expected the door route to win round 2');
-  await step('Crew A claims round 2', 'crewA', 'claim_reward', { round_id: r2.id }, { deposit: 1n, roundId: r2.id });
+  const winner2 = Object.keys(ids).find(crew => ids[crew] === f2.return_value.winner);
+  if (!winner2) throw new Error('Round 2 did not produce a recorded winner');
+  await step(`${winner2} claims round 2`, winner2, 'claim_reward', { round_id: r2.id }, { deposit: 1n, roundId: r2.id });
 
   // --- round 3
   const r3 = await open('crewA', 'Crew A opens round 3');

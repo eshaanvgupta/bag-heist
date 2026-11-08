@@ -32,6 +32,8 @@ BAG HEIST assumes an adversary can read all public contract state and pending tr
 
 **Upgrade authority.** There is no privileged upgrade method in the contract. Any retained full-access key on the NEAR contract account can nevertheless deploy replacement code or delete the account. The real deployment must publish its keys and code hash. Key deletion requires an explicit account-holder decision.
 
+The published account `bag-heist-mw7swkjh.testnet` retains the full-access key `ed25519:7WfeuwhLtS91NE4Lwi2fHcQgnPP9vK17HdK4mdK59w2i`. The private material is retained in ignored local operator credentials. `public/evidence/deployment.json` records this key, the on-chain code hash, and the three independent demonstration accounts.
+
 **Service availability.** The hosted frontend may be unavailable while the on-chain interface remains usable. GitHub Pages, RPC services, wallets, and explorers are external services. Practice mode remains available from a built copy but is not chain evidence.
 
 ## Defensive test coverage

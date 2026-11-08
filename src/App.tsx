@@ -2,11 +2,12 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { boardHash, checkRoute, solveRoutes, type Board } from './engine/rules';
 import { findDrafts, importBackup, makeDraft, saveDraft, type RevealDraft } from './drafts';
 import { loadTestnetEvidence, releaseEvidence, type TestnetEvidence } from './evidence';
-import { clearPending, connectWallet, currentAccount, disconnectWallet, loadSnapshot, pendingTransaction, sendTransaction } from './live';
-import { Practice, PRACTICE_CONTRACT } from './practice';
-import { bag, near, nsNow, phaseOf, short, type Mode, type Phase, type Snapshot, type TxNotice } from './types';
+import { clearPending, connectWallet, currentAccount, disconnectWallet, loadSnapshot, pendingTransaction, sendTransaction, transactionStatus } from './live';
+import { Practice } from './practice';
+import { bag, near, phaseOf, short, type Mode, type Phase, type Snapshot, type TxNotice } from './types';
+import deployment from '../public/evidence/deployment.json';
 
-const LIVE_CONTRACT = import.meta.env.VITE_NEAR_CONTRACT_ID || '';
+const LIVE_CONTRACT = import.meta.env.VITE_NEAR_CONTRACT_ID || deployment.contract_id;
 const ONE_YOCTO = '1';
 const MODE_COPY: Record<Mode, { label: string; kicker: string; copy: string }> = {
   practice: { label: 'Practice floor', kicker: 'Local simulation', copy: 'Run the complete economy in your browser with an accelerated chain clock.' },
@@ -83,9 +84,14 @@ function EvidenceRoom({ evidence, error }: { evidence: TestnetEvidence | null; e
 export default function App() {
   const practice = useRef<Practice | null>(null);
   if (!practice.current) practice.current = new Practice();
-  const [mode, setMode] = useState<Mode>('practice');
+  const [mode, setMode] = useState<Mode>(() => sessionStorage.getItem('bag-heist:mode') === 'practice' ? 'practice' : 'testnet');
+  const currentMode = useRef(mode);
+  currentMode.current = mode;
+  const [started, setStarted] = useState(() => sessionStorage.getItem('bag-heist:started') === 'yes');
+  const [liveReady, setLiveReady] = useState(false);
+  const [walletBusy, setWalletBusy] = useState(false);
   const [account, setAccount] = useState('you.testnet');
-  const [contractId, setContractId] = useState(LIVE_CONTRACT);
+  const [contractId, setContractId] = useState(() => LIVE_CONTRACT || localStorage.getItem('bag-heist:contract') || '');
   const [snapshot, setSnapshot] = useState<Snapshot>(() => practice.current!.snapshot('you.testnet'));
   const [moves, setMoves] = useState('');
   const [useCrowbar, setUseCrowbar] = useState(false);
@@ -99,27 +105,50 @@ export default function App() {
   const refreshPractice = useCallback((roundId?: string) => setSnapshot(practice.current!.snapshot(account, roundId)), [account]);
   const refreshLive = useCallback(async () => {
     if (!contractId) throw new Error('Enter the deployed .testnet contract account.');
-    const walletAccount = await currentAccount(); setAccount(walletAccount || '');
-    setSnapshot(await loadSnapshot(contractId, walletAccount));
+    const walletAccount = await currentAccount();
+    const next = await loadSnapshot(contractId, walletAccount);
+    if (currentMode.current !== 'testnet') return;
+    setAccount(walletAccount || '');
+    setSnapshot(next); setLiveReady(true);
   }, [contractId]);
 
   useEffect(() => { const id = setInterval(() => setTick(value => value + 1), 1000); return () => clearInterval(id); }, []);
   useEffect(() => { loadTestnetEvidence().then(setEvidence).catch(error => setEvidenceError(error instanceof Error ? error.message : String(error))); }, []);
   useEffect(() => {
+    sessionStorage.setItem('bag-heist:mode', mode);
     if (mode === 'practice') { setAccount('you.testnet'); setSnapshot(practice.current!.snapshot('you.testnet')); }
     if (mode === 'testnet') {
-      setAccount('');
+      setLiveReady(false); setAccount('');
+      currentAccount().then(value => { if (currentMode.current === 'testnet') setAccount(value || ''); }).catch(() => {});
       if (contractId) refreshLive().catch(error => setNotice({ state: 'unavailable', message: error instanceof Error ? error.message : String(error) }));
     }
-  }, [mode, refreshPractice, refreshLive, contractId]);
+  }, [mode, refreshLive, contractId]);
+  useEffect(() => {
+    if (mode !== 'testnet') return;
+    const pending = pendingTransaction();
+    const returned = new URLSearchParams(window.location.search).get('transactionHashes')?.split(',')[0];
+    if (!pending || (!pending.hash && !returned)) return;
+    transactionStatus(returned || pending.hash!, pending.accountId).then(status => {
+      setNotice({ state: status.status, message: status.message, hash: status.hash });
+      if (status.status === 'confirmed' || status.status === 'failed') clearPending();
+      if (status.status === 'confirmed' && contractId) refreshLive().catch(() => {});
+      window.history.replaceState({}, '', window.location.pathname + window.location.hash);
+    });
+  }, [mode, contractId, refreshLive]);
+  useEffect(() => {
+    if (mode !== 'testnet' || !liveReady) return;
+    const timer = setInterval(() => refreshLive().catch(error => setNotice({ state: 'unavailable', message: error.message })), 12_000);
+    return () => clearInterval(timer);
+  }, [mode, liveReady, refreshLive]);
   useEffect(() => {
     const round = snapshot.round;
     if (!round || !snapshot.account) { setDraft(null); return; }
-    const recovered = findDrafts({ contractId: snapshot.config.contract_id, playerId: snapshot.account, roundId: round.id })[0] ?? null;
+    const recovered = findDrafts({ contractId: snapshot.config.contract_id, playerId: snapshot.account, roundId: round.id }).find(value => !snapshot.commitment || value.commitmentHash === snapshot.commitment.commitment_hash) ?? null;
     setDraft(recovered); if (recovered) { setMoves(recovered.moves); setUseCrowbar(recovered.useCrowbar); }
-  }, [snapshot.round?.id, snapshot.account, snapshot.config.contract_id]);
+  }, [snapshot.round?.id, snapshot.account, snapshot.config.contract_id, snapshot.commitment?.commitment_hash]);
   useEffect(() => {
     const handler = (event: KeyboardEvent) => {
+      if (!started || mode === 'replay') return;
       if ((event.target as HTMLElement).matches('input, textarea, button')) return;
       const key: Record<string, string> = { ArrowUp: 'U', ArrowDown: 'D', ArrowLeft: 'L', ArrowRight: 'R' };
       if (key[event.key]) { event.preventDefault(); addMove(key[event.key]); }
@@ -128,7 +157,7 @@ export default function App() {
     window.addEventListener('keydown', handler); return () => window.removeEventListener('keydown', handler);
   });
 
-  const round = snapshot.round;
+  const round = mode === 'testnet' && !liveReady ? null : snapshot.round;
   const now = BigInt(snapshot.economy.block_timestamp) + BigInt(Math.max(0, Date.now() - snapshot.receivedAt)) * 1_000_000n + BigInt(tick - tick);
   const phase = round ? phaseOf(round, now) : 'finalized';
   const result = useMemo(() => round ? checkRoute(round.board, moves, useCrowbar) : null, [round, moves, useCrowbar]);
@@ -137,7 +166,7 @@ export default function App() {
   const profile = snapshot.profile;
 
   function addMove(move: string) {
-    if (!round || moves.length >= 35) return;
+    if (!started || !round || moves.length >= 35 || snapshot.commitment) return;
     const candidate = moves + move, check = checkRoute(round.board, candidate, useCrowbar);
     if (['WALL', 'REVISIT', 'DOOR_LOCKED', 'SECOND_DOOR', 'OUT_OF_BOUNDS', 'PAST_EXIT', 'BAD_MOVE'].includes(check.verdict)) {
       setNotice({ state: 'failed', message: `Route stopped: ${check.verdict.replaceAll('_', ' ').toLowerCase()}.` }); return;
@@ -155,11 +184,29 @@ export default function App() {
     try { action(); refreshPractice(); setNotice({ state: 'confirmed', message: label }); }
     catch (error) { setNotice({ state: 'failed', message: error instanceof Error ? error.message : String(error) }); }
   }
+  function startHeist() {
+    if (mode === 'practice' && !snapshot.round) practice.current!.open();
+    if (mode === 'practice') refreshPractice();
+    setStarted(true); sessionStorage.setItem('bag-heist:started', 'yes');
+    requestAnimationFrame(() => document.getElementById('vault-game')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
+  async function connect() {
+    setMode('testnet'); sessionStorage.setItem('bag-heist:mode', 'testnet');
+    setWalletBusy(true);
+    setNotice({ state: 'signing', message: 'Connect your NEAR testnet wallet to enter the live vault.' });
+    try {
+      localStorage.setItem('bag-heist:contract', contractId);
+      const connected = await connectWallet(contractId);
+      setAccount(connected || '');
+      if (contractId) await refreshLive();
+    } catch (error) { setNotice({ state: 'failed', message: error instanceof Error ? error.message : 'Wallet connection was cancelled.' }); }
+    finally { setWalletBusy(false); }
+  }
   async function liveAction(method: string, args: object = {}, deposit = '0') {
-    if (!snapshot.account) throw new Error('Connect a testnet wallet first.');
+    if (!account || !liveReady || snapshot.config.contract_id !== contractId) { setNotice({ state: 'failed', message: 'Connect your wallet and load the live contract first.' }); return; }
     setNotice({ state: 'signing', message: `Review ${method} in your wallet.` });
     try {
-      const tx = await sendTransaction({ contractId, accountId: snapshot.account, method, args, deposit }, hash => setNotice({ state: 'pending', message: 'Transaction submitted. Waiting for finality.', hash }));
+      const tx = await sendTransaction({ contractId, accountId: account, method, args, deposit }, hash => setNotice({ state: 'pending', message: 'Transaction submitted. Waiting for finality.', hash }));
       if (tx) setNotice({ state: tx.status, message: tx.message, hash: tx.hash });
       if (tx?.status === 'confirmed') await refreshLive();
     } catch (error) { setNotice({ state: 'failed', message: error instanceof Error ? error.message : 'Wallet request rejected.' }); }
@@ -199,10 +246,12 @@ export default function App() {
 
   const action = (() => {
     if (mode === 'replay') return null;
+    if (mode === 'testnet' && !account) return <button className="primary" onClick={connect}>Connect wallet to play</button>;
     if (!profile) return <button className="primary" onClick={() => mode === 'practice' ? mutate('Game profile registered.', () => practice.current!.register(account)) : liveAction('register_profile', {}, snapshot.config.profile_deposit)}>Register heist profile</button>;
     if (!snapshot.ftRegistered) return <button className="primary" onClick={() => mode === 'practice' ? mutate('BAG storage registered.', () => practice.current!.registerFt(account)) : liveAction('storage_deposit', { account_id: snapshot.account, registration_only: true }, '1250000000000000000000')}>Register BAG storage</button>;
     if (phase === 'commit' && !snapshot.commitment) return <button className="primary" disabled={!result?.valid} onClick={commit}>Seal this route</button>;
     if (phase === 'commit' && snapshot.commitment) return <button className="primary" disabled={mode !== 'practice'} onClick={() => mode === 'practice' && mutate('Chain clock advanced to reveal.', () => practice.current!.advance())}>{mode === 'practice' ? 'Close commitment window' : 'Commitment sealed'}</button>;
+    if (phase === 'reveal' && !snapshot.commitment) return <button className="primary" disabled={mode !== 'practice'} onClick={() => mutate('Chain clock advanced to settlement.', () => practice.current!.advance())}>{mode === 'practice' ? 'Close reveal window' : 'Next round after settlement'}</button>;
     if (phase === 'reveal' && !snapshot.commitment?.reveal) return <button className="primary" disabled={!draft} onClick={reveal}>Reveal matching route</button>;
     if (phase === 'reveal') return <button className="primary" disabled={mode !== 'practice'} onClick={() => mode === 'practice' && mutate('Chain clock advanced to settlement.', () => practice.current!.advance())}>{mode === 'practice' ? 'Close reveal window' : 'Reveal recorded'}</button>;
     if (phase === 'settle') return <button className="primary" onClick={() => mode === 'practice' ? mutate('Round finalized by the game engine.', () => practice.current!.finalize()) : liveAction('finalize_round', { round_id: round!.id })}>Finalize round</button>;
@@ -213,8 +262,8 @@ export default function App() {
   return <div className="app-shell">
     <header className="topbar">
       <a className="brand" href="#top" aria-label="BAG HEIST home"><span className="brand-mark">BH</span><span><strong>BAG HEIST</strong><small>Every move has a price.</small></span></a>
-      <nav className="mode-switch" aria-label="Application mode">{(Object.keys(MODE_COPY) as Mode[]).map(value => <button key={value} className={mode === value ? 'active' : ''} onClick={() => setMode(value)}><span>{MODE_COPY[value].kicker}</span>{MODE_COPY[value].label}</button>)}</nav>
-      <div className="chain-status"><i className={mode === 'testnet' ? 'live' : ''} /><span>{mode === 'testnet' ? 'NEAR testnet' : mode === 'practice' ? 'local engine' : 'read only'}</span></div>
+      <nav className="mode-switch" aria-label="Application mode">{(Object.keys(MODE_COPY) as Mode[]).map(value => <button key={value} className={mode === value ? 'active' : ''} onClick={() => { setMode(value); setMoves(''); }}><span>{MODE_COPY[value].kicker}</span>{MODE_COPY[value].label}</button>)}</nav>
+      <div className="header-actions"><div className="chain-status"><i className={mode === 'testnet' && liveReady ? 'live' : ''} /><span>{mode === 'testnet' ? 'NEAR testnet' : mode === 'practice' ? 'local engine' : 'read only'}</span></div><button className="secondary wallet-button" disabled={walletBusy} onClick={connect}>{walletBusy ? 'Connecting…' : mode === 'testnet' && account ? short(account, 6) : 'Connect wallet'}</button></div>
     </header>
 
     <main id="top">
@@ -224,15 +273,16 @@ export default function App() {
       </section>
 
       {mode === 'replay' ? <EvidenceRoom evidence={evidence} error={evidenceError} /> : <>
+        {!started && <section className="start-panel panel"><div className="start-copy"><p className="eyebrow">The vault is waiting</p><h2>Your heist. Your first move.</h2><p>Find the loot. Seal your route. Make it out with the bag.</p><div className="start-facts"><span><b>100 BAG</b> round prize</span><span><b>6 × 6</b> vault floor</span><span><b>120 seconds</b> to commit</span></div></div><div className="start-actions"><button className="primary" onClick={startHeist}>Start heist</button><button className="secondary" disabled={walletBusy} onClick={connect}>Play with a NEAR wallet</button><small>{mode === 'practice' ? 'Practice starts when you do. No wallet required.' : 'Live rounds follow the shared chain schedule.'}</small></div></section>}
         {mode === 'testnet' && <section className="connection-bar panel">
           <label><span>Contract account</span><input value={contractId} onChange={event => setContractId(event.target.value.trim())} placeholder="your-contract.testnet" /></label>
           <div className="connection-actions">
             <button className="secondary" onClick={() => refreshLive().catch(error => setNotice({ state: 'unavailable', message: error.message }))}>Refresh chain</button>
-            {account ? <button className="secondary" onClick={() => disconnectWallet().then(() => { setAccount(''); return refreshLive(); })}>Disconnect {short(account, 5)}</button> : <button className="primary compact" disabled={!contractId} onClick={() => connectWallet(contractId).then(refreshLive).catch(error => setNotice({ state: 'failed', message: error.message }))}>Connect wallet</button>}
+            {account ? <button className="secondary" onClick={() => disconnectWallet().then(() => { setAccount(''); if (contractId) return refreshLive(); })}>Disconnect {short(account, 5)}</button> : <span className="wallet-hint">Connect using the wallet button above</span>}
           </div>
         </section>}
 
-        {mode === 'testnet' && !contractId ? <section className="panel proof-panel live-gate"><p className="eyebrow">Live contract identity</p><h2>Point the vault at testnet.</h2><p className="quiet">Enter the published contract account above. BAG HEIST will load finalized chain state before enabling wallet connection or game actions.</p></section> : <>
+        {mode === 'testnet' && !liveReady ? started && <section className="panel live-gate"><p className="eyebrow">NEAR testnet</p><h2>Opening the live vault</h2><p role="status">{notice.state === 'unavailable' || notice.state === 'failed' ? notice.message : 'Fetching the latest round, treasury, and player state from NEAR.'}</p></section> : started ? <div id="vault-game">
         <section className="economy-strip">
           <Metric label="Prize reserve" value={`${round ? bag(round.prize) : '0'} BAG`} detail="fixed per round" />
           <Metric label="Current supply" value={`${bag(snapshot.economy.total_supply)} BAG`} detail={`burned ${bag(BigInt(snapshot.config.initial_supply) - BigInt(snapshot.economy.total_supply))}`} />
@@ -262,17 +312,18 @@ export default function App() {
 
             <section className="panel action-panel">
               <div className="panel-head"><div><p className="eyebrow">Next move</p><h3>{phase === 'commit' ? 'Seal your plan' : phase === 'reveal' ? 'Open the envelope' : phase === 'settle' ? 'Settle the vault' : 'Collect or continue'}</h3></div><span className={`notice-dot ${notice.state}`} /></div>
-              {action}
+              <fieldset className="transaction-action" disabled={notice.state === 'signing' || notice.state === 'pending'}>{action}</fieldset>
+              <p className="action-fee">{!profile ? `One-time game storage: ${near(snapshot.config.profile_deposit)} NEAR` : !snapshot.ftRegistered ? 'One-time token storage: 0.00125 NEAR' : phase === 'commit' && !snapshot.commitment ? `Commitment storage: ${near(snapshot.config.commitment_deposit)} NEAR` : 'Your wallet shows the transaction fee before approval.'}</p>
               <p className={`notice ${notice.state}`}>{notice.message}</p>
               {notice.hash && <a className="tx-link" href={`https://testnet.nearblocks.io/txns/${notice.hash}`} target="_blank" rel="noreferrer">View transaction {short(notice.hash)}</a>}
               {snapshot.commitment && <div className="commit-card"><span>Sealed hash</span><code>{short(snapshot.commitment.commitment_hash, 12)}</code><small>Sequence #{snapshot.commitment.sequence}</small></div>}
               <div className="backup-actions"><button className="secondary" disabled={!draft} onClick={exportDraft}>Export reveal</button><button className="secondary" disabled={!snapshot.commitment} onClick={() => importRef.current?.click()}>Import reveal</button><input ref={importRef} hidden type="file" accept="application/json" onChange={event => importDraftFile(event.target.files?.[0])} /></div>
             </section>
 
-            {mode === 'practice' && <section className="panel workshop">
+            <section className="panel workshop">
               <div><p className="eyebrow">Tool workshop</p><h3>Burn BAG. Bend steel.</h3><p>A crafted crowbar costs 5 BAG and opens one locked door in a later raid.</p></div>
-              <button className="secondary" disabled={!profile || BigInt(snapshot.balance) < BigInt(snapshot.config.crowbar_price) || profile.crowbars >= 10} onClick={() => mutate('5 BAG burned; crowbar added to inventory.', () => practice.current!.craft(account))}>Craft for 5 BAG</button>
-            </section>}
+              <button className="secondary" disabled={!profile || BigInt(snapshot.balance) < BigInt(snapshot.config.crowbar_price) || profile.crowbars >= 10} onClick={() => mode === 'practice' ? mutate('5 BAG burned; crowbar added to inventory.', () => practice.current!.craft(account)) : liveAction('craft_crowbar', {}, ONE_YOCTO)}>Craft for 5 BAG</button>
+            </section>
           </aside>
         </section>
 
@@ -284,7 +335,8 @@ export default function App() {
             <div className="audit-list"><span><i className={snapshot.economy.budget_identity_holds ? 'pass' : ''}/>Budget identity</span><span><i className={snapshot.economy.treasury_covers_budget ? 'pass' : ''}/>Treasury coverage</span><span><i className={snapshot.economy.supply_audit_holds ? 'pass' : ''}/>Supply audit</span></div>
           </div>
         </section>
-        </>}
+        {snapshot.rounds.some(value => value.winner === snapshot.account && value.finalized && !value.claimed && value.id !== round?.id) && <section className="panel prize-inbox"><p className="eyebrow">Your prize inbox</p>{snapshot.rounds.filter(value => value.winner === snapshot.account && value.finalized && !value.claimed && value.id !== round?.id).map(value => <div key={value.id}><span>Round {value.id} · 100 BAG ready to collect</span><button className="secondary" disabled={!snapshot.ftRegistered} onClick={() => mode === 'practice' ? mutate('100 BAG moved from treasury to winner.', () => practice.current!.claim(account, value.id)) : liveAction('claim_reward', { round_id: value.id }, ONE_YOCTO)}>Claim round {value.id}</button></div>)}</section>}
+        </div> : null}
       </>}
     </main>
 

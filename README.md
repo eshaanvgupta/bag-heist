@@ -6,13 +6,15 @@ Hackathon tracks: **Memecoins With Mechanics** (`memecoins`, primary) and **Game
 
 ## Try it
 
+Open **[BAG HEIST](https://eshaanvgupta.github.io/bag-heist/)**. Press **Start heist**, connect a NEAR testnet wallet, and join the live vault. The deployed contract is already configured; no account entry, local installation, or hosted game backend is needed. Use **Practice floor** for a wallet-free run whose clock begins when Start is pressed.
+
 ```bash
 corepack enable
 pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open `http://127.0.0.1:4173`. Practice mode runs the complete loop with an accelerated local clock: register → plan → commit → reveal → finalize → claim → burn BAG to craft a crowbar → consume it in a later commitment. Testnet mode uses wallet-signed transactions and chain-derived state. Evidence mode is read-only and never broadcasts.
+Open `http://127.0.0.1:4173`. The application opens in live testnet mode. Practice mode runs the complete loop with an accelerated local clock: Start → register → plan → commit → reveal → finalize → claim → burn BAG to craft a crowbar → consume it in a later commitment. Testnet mode uses wallet-signed transactions and chain-derived state. Evidence mode is read-only and never broadcasts.
 
 Production build and checks:
 
@@ -96,6 +98,8 @@ Reciprocal wording for AEGIS:
 
 ## Release status
 
-The local release is compiled, test-backed, and deployable. Public testnet identities and transaction evidence are recorded only after a real authorized deployment; the verifier deliberately returns `unavailable` and a non-zero exit code when that record is absent. This makes local proof, deployment proof, and replay evidence distinct and auditable.
+The release is deployed on NEAR testnet at [`bag-heist-mw7swkjh.testnet`](https://testnet.nearblocks.io/address/bag-heist-mw7swkjh.testnet). Deployment and initialization settled atomically in [transaction FYpnEQBm6jKQp2pzMYkoGqPL84UdY5FbYfKgp1t8BXpz](https://testnet.nearblocks.io/txns/FYpnEQBm6jKQp2pzMYkoGqPL84UdY5FbYfKgp1t8BXpz). Its on-chain code hash is `2ybn6Uzughan9SHbLZ2XyANYuTq41LmNK5fSrimuGGDe`, matching the committed WASM. Public identities, account keys, and deployment receipts are in [`public/evidence/deployment.json`](public/evidence/deployment.json). The account retains one full-access deployment key; its authority is documented in `THREAT_MODEL.md`.
+
+`pnpm verify:testnet` checks published game receipts and current contract audits through read-only RPC. A missing record or failed RPC produces `unavailable` and a non-zero exit; a receipt/code discrepancy produces `mismatching`. Wallet approval always belongs to the visiting player.
 
 MIT licensed. See [`LICENSE`](LICENSE).

@@ -8,7 +8,7 @@ The `Deploy GitHub Pages` workflow builds with `VITE_BASE_PATH=/bag-heist/` and 
 
 `https://eshaanvgupta.github.io/bag-heist/`
 
-Set repository variable `VITE_NEAR_CONTRACT_ID` after a testnet deployment. Leaving it blank is safe: practice and evidence modes work, while Live testnet requires the user to enter a contract before connecting.
+The production build defaults to the published `bag-heist-mw7swkjh.testnet` account from `public/evidence/deployment.json`. Repository variable `VITE_NEAR_CONTRACT_ID` can override that identity for a later verified deployment. Visitors enter through Start and connect their own testnet wallet using the persistent header button.
 
 ## Container
 

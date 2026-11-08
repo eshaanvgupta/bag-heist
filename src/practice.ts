@@ -29,18 +29,17 @@ export class Practice {
   constructor(private storage: Storage = localStorage) {
     try { const value = JSON.parse(storage.getItem(KEY) || 'null'); this.data = value?.version === 1 ? value : fresh(); }
     catch { this.data = fresh(); }
-    if (!this.data.rounds.length) this.open();
   }
   now() { return nsNow() + BigInt(this.data.clockOffset); }
   private save() { this.data.economy.block_timestamp = String(this.now()); this.storage.setItem(KEY, JSON.stringify(this.data)); }
   private latest() { const round = this.data.rounds.at(-1); if (!round) throw new Error('Open a round first.'); return round; }
   snapshot(account: string, roundId?: string): Snapshot {
-    const round = roundId ? this.data.rounds.find(r => r.id === roundId) ?? this.latest() : this.latest();
+    const round = (roundId ? this.data.rounds.find(r => r.id === roundId) : null) ?? this.data.rounds.at(-1) ?? null;
     return structuredClone({ config: practiceConfig, economy: { ...this.data.economy, block_timestamp: String(this.now()) },
       round, rounds: this.data.rounds.slice(-20).reverse(), profile: this.data.profiles[account] ?? null, account,
       balance: this.data.balances[account] ?? '0', ftRegistered: this.data.ftAccounts.includes(account),
-      commitment: this.data.commitments[round.id]?.find(c => c.player_id === account) ?? null,
-      commitments: this.data.commitments[round.id] ?? [], receivedAt: Date.now() });
+      commitment: round ? this.data.commitments[round.id]?.find(c => c.player_id === account) ?? null : null,
+      commitments: round ? this.data.commitments[round.id] ?? [] : [], receivedAt: Date.now() });
   }
   register(account: string) {
     if (this.data.profiles[account]) throw new Error('Game profile already registered.');
